@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Boots</title>
+    <title>#cattos</title>
     <style>
         body {
             height: 100vh;
@@ -28,24 +28,46 @@
             border-width: 2px;
             border-radius: 10px;
         }
-        .custom-button {
+        .select-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #2ecc71; /* Emerald Green */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            margin-top: 50px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .select-button:active {
+            transform: scale(0.95);
+        }
+        .select-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .gen-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             margin: 50px;
+            margin-top: 10px;
             font-size: 16px;
             cursor: pointer;
             transition: transform 0.2s;
         }
-        .custom-button:active {
+        .gen-button:active {
             transform: scale(0.95);
         }
-        .custom-button img {
+        .gen-button img {
             width: 20px;
             height: 20px;
             margin-right: 10px;
@@ -54,7 +76,17 @@
 </head>
 <body background>
     <div class="overlay">
-        <button class="custom-button" onclick="generateImage()">
+        <div style="display: flex;">
+            <button class="select-button" id="booty" style="background-color: #2663d4;" onclick="goBoots()">
+                <img src="boots.png">
+                Boots
+            </button>
+            <button class="select-button" id="cheesy" style="background-color: #9c9c9c;" onclick="goCheese()">
+                <img src="cheese.png">
+                Cheese
+            </button>
+        </div>
+        <button class="gen-button" style="background-color: #2ecc71;" onclick="generateImage()">
             <img src="shuffle.png" alt="Button Icon">
             Generate Seratonin
         </button>
@@ -62,10 +94,28 @@
     </div>
     
     <script>
+        var folderName = "boots";
+        var max = 43;
+        var imageContainer = document.getElementById("randomImage");
+        var cheeseButton = document.getElementById("cheesy");
+        var bootsButton = document.getElementById("booty");
+
+        function goBoots() {
+            folderName = "boots";
+            max = 43;
+            cheeseButton.style.backgroundColor = "#9c9c9c";
+            bootsButton.style.backgroundColor = "#2663d4";
+        }
+
+        function goCheese() {
+            folderName = "cheese";
+            max = 26;
+            bootsButton.style.backgroundColor = "#9c9c9c";
+            cheeseButton.style.backgroundColor = "#2663d4";
+        }
+
         function generateImage() {
-            var folderName = "boots";
-            var imageContainer = document.getElementById("randomImage");
-            var randomNumber = Math.ceil(Math.random() * 42);
+            var randomNumber = Math.ceil(Math.random() * max);
             var imagePath = folderName + "/" + randomNumber + ".jpg";
             imageContainer.src = imagePath;
         }
