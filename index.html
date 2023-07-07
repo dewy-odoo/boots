@@ -85,6 +85,10 @@
                 <img src="cheese.png">
                 Cheese
             </button>
+            <button class="select-button" id="meesy" style="background-color: #9c9c9c;" onclick="goMiso()">
+                <img src="miso.png">
+                Miso
+            </button>
         </div>
         <button class="gen-button" style="background-color: #2ecc71;" onclick="generateImage()">
             <img src="shuffle.png" alt="Button Icon">
@@ -95,23 +99,34 @@
     
     <script>
         var folderName = "boots";
-        var max = 43;
+        var max = 72;
         var imageContainer = document.getElementById("randomImage");
         var cheeseButton = document.getElementById("cheesy");
         var bootsButton = document.getElementById("booty");
+        var misoButton = document.getElementById("meesy");
 
         function goBoots() {
             folderName = "boots";
-            max = 43;
-            cheeseButton.style.backgroundColor = "#9c9c9c";
+            max = 72;
             bootsButton.style.backgroundColor = "#2663d4";
+            cheeseButton.style.backgroundColor = "#9c9c9c";
+            misoButton.style.backgroundColor = "#9c9c9c";
         }
 
         function goCheese() {
             folderName = "cheese";
-            max = 26;
+            max = 27;
             bootsButton.style.backgroundColor = "#9c9c9c";
             cheeseButton.style.backgroundColor = "#2663d4";
+            misoButton.style.backgroundColor = "#9c9c9c";
+        }
+
+        function goMiso() {
+            folderName = "miso";
+            max = 69;
+            bootsButton.style.backgroundColor = "#9c9c9c";
+            cheeseButton.style.backgroundColor = "#9c9c9c";
+            misoButton.style.backgroundColor = "#2663d4";
         }
 
         function generateImage() {
